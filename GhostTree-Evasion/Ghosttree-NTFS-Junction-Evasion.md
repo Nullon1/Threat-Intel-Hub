@@ -153,13 +153,9 @@ NTFS stores a canonical destination path for the reparse object, which is why Wi
 
 # 3. Junctions vs Symbolic Links
 
-| Feature | Junction | Symbolic Link |
-|----------|----------|----------|
-| Requires Administrator Privileges | Usually No | Often Yes |
-| Works With Files | No | Yes |
-| Works With Directories | Yes | Yes |
-| Supports Remote Paths | No | Yes |
-| Primary Purpose | Local Directory Redirection | Flexible Filesystem Linking |
+Here is a visual comparison of the key differences between Junctions and Symbolic Links :
+
+![Junction Vs Symbolics](https://github.com/Nullon1/Threat-Intel-Hub/blob/main/GhostTree-Evasion/images/Junctions%20VS%20Symbolics.png)
 
 The most important difference from an attacker's perspective is privilege requirements.
 
@@ -171,7 +167,7 @@ An attacker with normal write permissions can often create recursive junction st
 
 This is one of the primary reasons junctions became attractive for filesystem-based evasion scenarios.
 
-# 4. Why Junctions Became Attractive for Evasion
+# 4. Why Junctions Became Attractive for Evasion? 
 
 From an attacker’s perspective, NTFS Junctions have several characteristics that make them useful for filesystem-based evasion.
 
