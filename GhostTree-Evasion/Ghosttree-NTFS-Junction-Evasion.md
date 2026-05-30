@@ -155,7 +155,9 @@ NTFS stores a canonical destination path for the reparse object, which is why Wi
 
 Here is a visual comparison of the key differences between Junctions and Symbolic Links :
 
-![Junction Vs Symbolics](https://github.com/Nullon1/Threat-Intel-Hub/blob/main/GhostTree-Evasion/images/Junctions%20VS%20Symbolics.png)
+<p align="center">
+  <img src="https://raw.githubusercontent.com/Nullon1/Threat-Intel-Hub/main/GhostTree-Evasion/images/Junctions%20VS%20Symbolics.png" alt="Junction Vs Symbolics">
+</p>
 
 The most important difference from an attacker's perspective is privilege requirements.
 
