@@ -24,27 +24,6 @@ The objective is not merely to collect information, but to produce understanding
 
 ---
 
-# Research Domains
-
-Threat-Intel-Hub is organized around five primary intelligence disciplines.
-
----
-
-# Repository Organization
-
-```text
-Threat-Intel-Hub
-│
-├── Vulnerabilities
-│   ├── CVE-Analysis
-│   ├── Root-Cause-Research
-│   ├── Exploitation-Studies
-│   └── Architecture-Reviews
-│
-```
-
----
-
 # Intended Audience
 
 Threat-Intel-Hub is designed for professionals and researchers seeking a deeper understanding of cybersecurity threats and defensive practices.
