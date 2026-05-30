@@ -80,12 +80,14 @@ In NTFS, a **reparse point** allows Windows to transparently redirect filesystem
 
 Windows introduced this mechanism primarily for three purposes:
 
+<div align="center">
 | Purpose | Description |
 |---|---|
 | **Compatibility** | Legacy apps with hardcoded paths can be redirected transparently without code changes |
 | **Storage Optimization** | Large datasets can be relocated across volumes without breaking path expectations |
 | **Path Redirection** | Applications continue functioning normally even if the real storage location changes |
-
+</div>
+  
 ### Compatibility — Example
 
 An application may expect its files inside:
