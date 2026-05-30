@@ -168,6 +168,8 @@ mklink /J Child ..\Parent
 
 ## 3. Junctions vs Symbolic Links
 
+Here is a visual comparison of the key differences between Junctions and Symbolic Links : 
+
 <p align="center">
   <img src="https://raw.githubusercontent.com/Nullon1/Threat-Intel-Hub/main/GhostTree-Evasion/images/Junctions%20VS%20Symbolics.png" alt="Junctions VS Symbolic Links Comparison">
 </p>
@@ -369,6 +371,10 @@ These mechanisms often prevent scanners from exploring every theoretical travers
 ## 8. Practical Lab Scenario
 
 The following example demonstrates the logical structure behind GhostTree in a controlled lab-style scenario for **defensive understanding only**.
+
+<p align="center">
+  <img src="https://github.com/Nullon1/Threat-Intel-Hub/blob/main/GhostTree-Evasion/images/Flow.png">
+</p>
 
 ### Structure
 
