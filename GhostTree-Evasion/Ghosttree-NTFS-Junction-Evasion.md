@@ -1,7 +1,3 @@
-# GhostTree — Filesystem-Based Defense Evasion
-
----
-
 ## Table of Contents
 
 1. [Introduction](#1-introduction)
@@ -80,14 +76,31 @@ In NTFS, a **reparse point** allows Windows to transparently redirect filesystem
 
 Windows introduced this mechanism primarily for three purposes:
 
-<div align="center">
-| Purpose | Description |
-|---|---|
-| **Compatibility** | Legacy apps with hardcoded paths can be redirected transparently without code changes |
-| **Storage Optimization** | Large datasets can be relocated across volumes without breaking path expectations |
-| **Path Redirection** | Applications continue functioning normally even if the real storage location changes |
-</div>
-  
+<p align="center">
+<table>
+  <thead>
+    <tr>
+      <th>Purpose</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>Compatibility</strong></td>
+      <td>Legacy apps with hardcoded paths can be redirected transparently without code changes</td>
+    </tr>
+    <tr>
+      <td><strong>Storage Optimization</strong></td>
+      <td>Large datasets can be relocated across volumes without breaking path expectations</td>
+    </tr>
+    <tr>
+      <td><strong>Path Redirection</strong></td>
+      <td>Applications continue functioning normally even if the real storage location changes</td>
+    </tr>
+  </tbody>
+</table>
+</p>
+
 ### Compatibility — Example
 
 An application may expect its files inside:
@@ -118,11 +131,30 @@ If an application accesses `C:\Logs`, Windows transparently redirects the reques
 
 ### Junction Limitations
 
-| Constraint | Details |
-|---|---|
-| **Local-only** | A junction can only point to another local path on the same system — no UNC/network paths |
-| **Directories only** | Junctions cannot point directly to files |
-| **Absolute paths required** | NTFS stores a canonical destination path — relative paths are not valid |
+<p align="center">
+<table>
+  <thead>
+    <tr>
+      <th>Constraint</th>
+      <th>Details</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>Local-only</strong></td>
+      <td>A junction can only point to another local path on the same system — no UNC/network paths</td>
+    </tr>
+    <tr>
+      <td><strong>Directories only</strong></td>
+      <td>Junctions cannot point directly to files</td>
+    </tr>
+    <tr>
+      <td><strong>Absolute paths required</strong></td>
+      <td>NTFS stores a canonical destination path — relative paths are not valid</td>
+    </tr>
+  </tbody>
+</table>
+</p>
 
 ```cmd
 # Valid
@@ -209,12 +241,34 @@ However, backward compatibility keeps many legacy assumptions alive across tooli
 
 ### What MAX_PATH Actually Affects
 
-| Factor | Impact |
-|---|---|
-| **Traversal depth** | Limits how deep legacy tools can recurse |
-| **Recursive expansion** | Influences how path strings grow per level |
-| **Legacy scanner assumptions** | Older implementations may truncate or fail silently |
-| **Path-handling bugs** | Unexpected behavior at boundary conditions |
+<p align="center">
+<table>
+  <thead>
+    <tr>
+      <th>Factor</th>
+      <th>Impact</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>Traversal depth</strong></td>
+      <td>Limits how deep legacy tools can recurse</td>
+    </tr>
+    <tr>
+      <td><strong>Recursive expansion</strong></td>
+      <td>Influences how path strings grow per level</td>
+    </tr>
+    <tr>
+      <td><strong>Legacy scanner assumptions</strong></td>
+      <td>Older implementations may truncate or fail silently</td>
+    </tr>
+    <tr>
+      <td><strong>Path-handling bugs</strong></td>
+      <td>Unexpected behavior at boundary conditions</td>
+    </tr>
+  </tbody>
+</table>
+</p>
 
 > **Important:** Recursive filesystem loops are not fundamentally caused by MAX_PATH. The real issue is **graph recursion and cycle handling**.
 
@@ -270,10 +324,26 @@ After accounting for drive letter, formatting, and terminators, the practical fi
 
 ### Why Depth Alone Is Not the Problem
 
-| Factor | Description |
-|---|---|
-| **Depth** | Limits how far down any single path can go |
-| **Branching** | Multiplies the number of traversal paths exponentially |
+<p align="center">
+<table>
+  <thead>
+    <tr>
+      <th>Factor</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>Depth</strong></td>
+      <td>Limits how far down any single path can go</td>
+    </tr>
+    <tr>
+      <td><strong>Branching</strong></td>
+      <td>Multiplies the number of traversal paths exponentially</td>
+    </tr>
+  </tbody>
+</table>
+</p>
 
 Under a simplified theoretical model, a **dual-node recursive structure** can produce approximately:
 
@@ -326,14 +396,42 @@ mklink /J Child2 C:\Parent
 
 Each traversal iteration may trigger:
 
-| Operation | Resource Cost |
-|---|---|
-| Directory enumeration | I/O |
-| Hash calculation | CPU |
-| Metadata inspection | Memory |
-| Permission validation | CPU + I/O |
-| Memory allocation | Memory |
-| Scan job scheduling | CPU |
+<p align="center">
+<table>
+  <thead>
+    <tr>
+      <th>Operation</th>
+      <th>Resource Cost</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Directory enumeration</td>
+      <td>I/O</td>
+    </tr>
+    <tr>
+      <td>Hash calculation</td>
+      <td>CPU</td>
+    </tr>
+    <tr>
+      <td>Metadata inspection</td>
+      <td>Memory</td>
+    </tr>
+    <tr>
+      <td>Permission validation</td>
+      <td>CPU + I/O</td>
+    </tr>
+    <tr>
+      <td>Memory allocation</td>
+      <td>Memory</td>
+    </tr>
+    <tr>
+      <td>Scan job scheduling</td>
+      <td>CPU</td>
+    </tr>
+  </tbody>
+</table>
+</p>
 
 Depending on traversal protections and cycle-awareness, recursive structures may significantly **degrade scanning performance** or create **traversal instability**.
 
@@ -374,11 +472,30 @@ Once reparse points, junctions, and recursive references enter the picture, the 
 
 ### Key Takeaways
 
-| Perspective | Takeaway |
-|---|---|
-| **Attackers** | Junctions are low-privilege, native, and capable of creating traversal instability without any exploit |
-| **Defenders** | Cycle detection, object-level tracking, and traversal limits are essential — not optional |
-| **Engineers** | Test scanning engines against graph-like structures, not just linear directory trees |
+<p align="center">
+<table>
+  <thead>
+    <tr>
+      <th>Perspective</th>
+      <th>Takeaway</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>Attackers</strong></td>
+      <td>Junctions are low-privilege, native, and capable of creating traversal instability without any exploit</td>
+    </tr>
+    <tr>
+      <td><strong>Defenders</strong></td>
+      <td>Cycle detection, object-level tracking, and traversal limits are essential — not optional</td>
+    </tr>
+    <tr>
+      <td><strong>Engineers</strong></td>
+      <td>Test scanning engines against graph-like structures, not just linear directory trees</td>
+    </tr>
+  </tbody>
+</table>
+</p>
 
 The practical impact of GhostTree should not be overstated — modern security products commonly implement recursion limits, cycle detection, and other safeguards. But the Microsoft Defender case demonstrated that traversal logic can still become a source of operational issues when recursive filesystem structures are not handled correctly.
 
