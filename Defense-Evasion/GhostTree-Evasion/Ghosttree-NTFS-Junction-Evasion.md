@@ -373,7 +373,7 @@ These mechanisms often prevent scanners from exploring every theoretical travers
 The following example demonstrates the logical structure behind GhostTree in a controlled lab-style scenario for **defensive understanding only**.
 
 <p align="center">
-  <img src="https://github.com/Nullon1/Threat-Intel-Hub/blob/main/GhostTree-Evasion/images/Flow.png">
+  <img src="https://github.com/Nullon1/Threat-Intel-Hub/blob/main/Defense-Evasion/GhostTree-Evasion/images/Flow.png">
 </p>
 
 ### Structure
