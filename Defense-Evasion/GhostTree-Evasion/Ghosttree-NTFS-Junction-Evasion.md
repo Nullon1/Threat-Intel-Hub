@@ -171,7 +171,7 @@ mklink /J Child ..\Parent
 Here is a visual comparison of the key differences between Junctions and Symbolic Links : 
 
 <p align="center">
-  <img src="http://github.com/Nullon1/Threat-Intel-Hub/blob/main/Defense-Evasion/GhostTree-Evasion/images/Junctions%20VS%20Symbolics.png">
+  <img src="https://github.com/Nullon1/Threat-Intel-Hub/blob/main/Defense-Evasion/GhostTree-Evasion/images/Junctions%20VS%20Symbolics.png">
 </p>
 
 The most important difference from an attacker's perspective is **privilege requirements**.
