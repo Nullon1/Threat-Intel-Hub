@@ -4,6 +4,10 @@ Version: 3.0
 
 Last Updated: June 2026
 
+<p align="center">
+  <img src="https://github.com/Nullon1/Threat-Intel-Hub/blob/main/Playbook/DDoS/images/Flow.png">
+</p>
+
 ---
 
 # Table of Contents
