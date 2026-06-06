@@ -2,6 +2,10 @@
 
 A structured, phase-based playbook for detecting, containing, and recovering from DDoS attacks.
 
+<p align="center">
+  <img src="https://github.com/Nullon1/Threat-Intel-Hub/blob/main/Playbook/DDoS/images/DDoS-Banner.jpg">
+</p>
+
 ---
 
 ## What's inside
