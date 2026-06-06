@@ -1,6 +1,7 @@
 # DDoS Attack Detection & Incident Response Playbook
 
 Version: 3.0
+
 Last Updated: June 2026
 
 ---
