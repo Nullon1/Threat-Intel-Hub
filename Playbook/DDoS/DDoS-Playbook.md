@@ -5,6 +5,43 @@ Last Updated: June 2026
 
 ---
 
+# Table of Contents
+
+- [Purpose](#purpose)
+- [Scope](#scope)
+- [Safety Rules](#safety-rules)
+- [Severity Classification](#severity-classification)
+- [Authority Matrix](#authority-matrix)
+- [Escalation Criteria](#escalation-criteria)
+- [Baseline Requirements](#baseline-requirements)
+- [Threat Assumptions](#threat-assumptions)
+  - [Volumetric Attacks](#volumetric-attacks)
+  - [Protocol Attacks](#protocol-attacks)
+  - [Application Layer Attacks](#application-layer-attacks)
+  - [Multi-Vector Attacks](#multi-vector-attacks)
+- [Incident Activation Criteria](#incident-activation-criteria)
+- [Phase 1 – Detection](#phase-1--detection)
+  - [Detection Logic](#detection-logic)
+  - [False Positive Validation](#false-positive-validation)
+  - [Flash Crowd Assessment](#flash-crowd-assessment)
+- [Phase 2 – Scoping](#phase-2--scoping)
+  - [Attack Classification](#attack-classification)
+  - [Advanced Application Layer Analysis](#advanced-application-layer-analysis)
+  - [Decision Matrix](#decision-matrix)
+- [Phase 3 – Containment & Mitigation](#phase-3--containment--mitigation)
+  - [RTBH Guidance](#rtbh-guidance)
+  - [FlowSpec Guidance](#flowspec-guidance)
+  - [Monitoring Loop](#monitoring-loop)
+- [Phase 4 – Business Protection](#phase-4--business-protection)
+- [Phase 5 – Recovery](#phase-5--recovery)
+- [Phase 6 – Evidence Collection & Handoff](#phase-6--evidence-collection--handoff)
+- [Phase 7 – Post-Incident Review](#phase-7--post-incident-review)
+- [Metrics of Success](#metrics-of-success)
+- [Common Mistakes](#common-mistakes)
+- [Hardening Recommendations](#hardening-recommendations)
+
+---
+
 # Purpose
 
 This playbook provides a structured methodology for detecting, analyzing, containing, mitigating, recovering from, and documenting Distributed Denial of Service (DDoS) attacks.
@@ -231,7 +268,7 @@ Infrastructure Indicators:
 
 ---
 
-# False Positive Validation
+## False Positive Validation
 
 Before declaring a DDoS incident verify with:
 
@@ -251,7 +288,7 @@ Check for:
 
 ---
 
-# Flash Crowd Assessment
+## Flash Crowd Assessment
 
 Determine whether increased traffic is legitimate.
 
@@ -298,9 +335,9 @@ Determine:
 
 ---
 
-# Attack Classification
+## Attack Classification
 
-## Volumetric Attack
+### Volumetric Attack
 
 Characteristics:
 
@@ -314,7 +351,7 @@ Preferred Mitigations:
 * ISP Scrubbing
 * Traffic Diversion
 
-## Protocol Attack
+### Protocol Attack
 
 Characteristics:
 
@@ -351,7 +388,7 @@ Preferred Mitigations:
 >
 > A significant increase in half-open TCP sessions may indicate SYN Flood activity.
 
-## Application Layer Attack
+### Application Layer Attack
 
 Characteristics:
 
@@ -368,7 +405,7 @@ Preferred Mitigations:
 
 ---
 
-# Advanced Application Layer Analysis
+## Advanced Application Layer Analysis
 
 Investigate:
 
@@ -384,7 +421,7 @@ Investigate:
 
 ---
 
-# Decision Matrix
+## Decision Matrix
 
 Bandwidth Saturation
 
@@ -481,7 +518,7 @@ Request:
 
 ---
 
-# RTBH Guidance
+## RTBH Guidance
 
 Use RTBH only when:
 
@@ -499,7 +536,7 @@ Use RTBH only when:
 
 ---
 
-# FlowSpec Guidance
+## FlowSpec Guidance
 
 Use FlowSpec when attack characteristics can be filtered through granular traffic controls without impacting legitimate traffic.
 
@@ -519,7 +556,7 @@ Use FlowSpec when attack characteristics can be filtered through granular traffi
 
 ---
 
-# Monitoring Loop
+## Monitoring Loop
 
 During active mitigation:
 
@@ -563,7 +600,7 @@ Document:
 
 ---
 
-# Customer Communication
+## Customer Communication
 
 Coordinate with:
 
@@ -593,7 +630,7 @@ Recovery should begin only after traffic remains stable for an appropriate obser
 
 ---
 
-# Recovery Validation Checklist
+## Recovery Validation Checklist
 
 * Service availability confirmed
 * Performance metrics normalized
@@ -715,7 +752,3 @@ Don't:
 * FlowSpec Readiness
 * BGP Diversion Procedures
 * Quarterly Tabletop Exercises
-* Annual DDoS Simulations
-* Continuous Baseline Tuning
-* Automated Alerting
-* Regular Incident Response Reviews
