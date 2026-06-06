@@ -32,7 +32,7 @@ Each traversal level re-expands into the full structure, producing exponential p
 
 ### NTFS Junction Loop — Visual
 
-![GhostTree NTFS Junction Loop Structure](https://github.com/Nullon1/Threat-Intel-Hub/blob/main/GhostTree-Evasion/images/Flow.png)
+![GhostTree NTFS Junction Loop Structure](https://github.com/Nullon1/Threat-Intel-Hub/blob/main/Defense-Evasion/GhostTree-Evasion/images/Flow.png)
 
 The diagram above illustrates how `Child1` and `Child2` junction back to `C:\Parent`, causing scanners to recurse infinitely until the path length limit (~260 chars) is hit — never reaching `Program.exe`.
 
